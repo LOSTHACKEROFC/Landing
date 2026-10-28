@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Discover Sexy Chat, its features, screenshots, and download information.">
+<title>Sexy Chat - App Information</title>
+
+<style>
+:root {
+    --blue: #0b57d0;
+    --blue-dark: #0842a0;
+    --text: #202124;
+    --muted: #656a73;
+    --border: #e4e7eb;
+    --background: #f6f8fc;
+    --surface: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family: Roboto, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+button, a { font: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+
+.page {
+    width: 100%;
+    max-width: 760px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding-bottom: 45px;
+    background: var(--surface);
+    overflow: hidden;
+}
+
+/* ─── TOP BAR ─── */
+.topbar {
+    height: 58px;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topbar button {
+    width: 42px;
+    height: 42px;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    font-size: 27px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.topbar button:hover { background: #f0f2f5; }
+
+.breadcrumb {
+    padding: 0 24px 8px;
+    font-size: 12px;
+    color: var(--muted);
+}
+.breadcrumb a {
+    color: var(--blue);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── APP HEADER ─── */
+.app-header {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    padding: 23px 24px 16px;
+}
+
+.app-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 23px;
+    flex-shrink: 0;
+    background: #fff;
+    border: 1px solid #eeeeee;
+}
+
+.app-name {
+    font-size: 27px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 0 0 9px;
+    letter-spacing: -0.6px;
+}
+
+.developer {
+    color: var(--blue);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.subtitle {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.app-badges {
+    display: flex;
+    gap: 6px;
+    margin-top: 9px;
+    flex-wrap: wrap;
+}
+.badge {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+.badge-green { background: #e6f4ea; color: #137333; }
+.badge-blue  { background: #e8f0fe; color: #0b57d0; }
+
+/* ─── STATS ─── */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    padding: 24px 6px;
+    margin: 0 14px;
+    border-bottom: 1px solid var(--border);
+}
+
+.stat {
+    text-align: center;
+    padding: 0 4px;
+    border-right: 1px solid var(--border);
+    min-width: 0;
+}
+
+.stat:last-child { border-right: 0; }
+
+.stat-value {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    white-space: nowrap;
+}
+
+.stat-label {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.star, .stars { color: var(--blue); }
+
+/* ─── INSTALL ─── */
+.install {
+    display: block;
+    width: calc(100% - 48px);
+    margin: 22px 24px 14px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 12px;
+    background: var(--blue);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+
+.install:hover { background: var(--blue-dark); }
+.install:active { transform: scale(.99); }
+
+.install-note {
+    color: var(--muted);
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+/* ─── GALLERY ─── */
+.gallery-heading {
+    padding: 25px 24px 12px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.gallery {
+    display: flex;
+    gap: 13px;
+    padding: 0 24px 22px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    perspective: 1000px;
+}
+
+.phone-frame {
+    position: relative;
+    padding: 8px;
+    background: #1a1a1a;
+    border-radius: 24px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    transition: transform .2s;
+}
+
+.phone-frame:hover { transform: translateY(-3px); }
+
+.phone-frame::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 6px;
+    background: #333;
+    border-radius: 3px;
+    z-index: 2;
+}
+
+.phone-frame img {
+    display: block;
+    height: 285px;
+    width: auto;
+    max-width: 260px;
+    min-width: 145px;
+    object-fit: cover;
+    border-radius: 18px;
+    cursor: pointer;
+    background: linear-gradient(
+        90deg,
+        #f0f2f5 0%,
+        #e4e7eb 50%,
+        #f0f2f5 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.phone-frame img.loaded {
+    background: none;
+    animation: none;
+}
+
+@keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ─── SECTIONS ─── */
+section {
+    padding: 25px 24px;
+    border-top: 8px solid var(--background);
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    font-size: 21px;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -.3px;
+}
+
+.section-arrow {
+    color: var(--muted);
+    font-size: 25px;
+}
+
+.description {
+    color: #555b63;
+    font-size: 16px;
+    line-height: 1.75;
+    margin: 0 0 20px;
+}
+
+.description.clamped {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.read-more {
+    background: none;
+    border: none;
+    color: var(--blue);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.read-more:hover { text-decoration: underline; }
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.chip {
+    border: 1px solid #d5d9e0;
+    border-radius: 10px;
+    padding: 9px 13px;
+    color: #4f5661;
+    font-size: 13px;
+}
+
+/* ─── ABOUT DETAILS ─── */
+.about-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.detail-card {
+    background: #f7f9fc;
+    border: 1px solid #edf0f4;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.detail-label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 7px;
+}
+
+.detail-value {
+    font-size: 14px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* ─── WHAT'S NEW ─── */
+.changelog {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+    color: #555b63;
+    font-size: 15px;
+    line-height: 1.9;
+}
+.changelog li::before {
+    content: "•";
+    color: var(--blue);
+    font-weight: 700;
+    margin-right: 9px;
+}
+
+/* ─── DATA SAFETY ─── */
+.data-row {
+    display: flex;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+}
+.data-row:last-child { border-bottom: 0; }
+.data-row .icon { font-size: 20px; flex-shrink: 0; }
+.data-row b { display: block; margin-bottom: 3px; font-weight: 600; }
+
+/* ─── DEVELOPER CARD ─── */
+.dev-card {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+.dev-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #e5edfb;
+    color: #174ea6;
+    display: grid;
+    place-items: center;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+.dev-name {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+/* ─── RATING ─── */
+.rating-layout {
+    display: grid;
+    grid-template-columns: 135px 1fr;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.score {
+    font-size: 65px;
+    line-height: 1.1;
+    font-weight: 400;
+    letter-spacing: -3px;
+}
+
+.stars {
+    font-size: 17px;
+    letter-spacing: 1px;
+    margin: 7px 0;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.bar-row {
+    display: grid;
+    grid-template-columns: 14px 1fr 40px;
+    gap: 9px;
+    align-items: center;
+    margin: 8px 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.bar {
+    height: 10px;
+    border-radius: 20px;
+    background: #e8edf5;
+    overflow: hidden;
+}
+
+.bar span {
+    height: 100%;
+    display: block;
+    border-radius: inherit;
+    background: var(--blue);
+}
+
+.review-summary {
+    color: #535963;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 20px 0 10px;
+}
+
+/* ─── REVIEW FILTERS ─── */
+.review-filters {
+    display: flex;
+    gap: 8px;
+    margin: 16px 0;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+}
+.review-filters button {
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 20px;
+    font-size: 13px;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(--text);
+}
+.review-filters button:hover { background: #f0f5ff; }
+.review-filters button.active {
+    background: #e8f0fe;
+    border-color: #c3d9fd;
+    color: var(--blue);
+    font-weight: 600;
+}
+
+/* ─── REVIEWS ─── */
+.review-list { display: flex; flex-direction: column; }
+
+.review {
+    padding: 22px 0;
+    border-top: 1px solid var(--border);
+}
+
+.review-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    background: #e5edfb;
+    color: #174ea6;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.review-person { flex: 1; min-width: 0; }
+
+.review-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.review-date {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.review-rating {
+    font-size: 14px;
+    margin: 13px 0 8px;
+}
+
+.review-title {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.review-text {
+    color: #555b63;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.review-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
+    gap: 10px;
+}
+
+.helpful-label {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.vote-buttons { display: flex; gap: 8px; }
+
+.vote-buttons button {
+    padding: 8px 15px;
+    background: white;
+    border: 1px solid #d2d6dd;
+    border-radius: 20px;
+    color: #343941;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.vote-buttons button:hover { background: #f0f5ff; }
+.vote-buttons button:disabled {
+    background: #e8f0fe;
+    border-color: #d5e2fc;
+    cursor: default;
+}
+
+.demo-note {
+    padding: 12px;
+    border-radius: 10px;
+    background: #f6f8fc;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+.load-more {
+    width: 100%;
+    padding: 13px;
+    background: white;
+    border: 1px solid #d4d8df;
+    border-radius: 10px;
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.load-more:hover { background: #f6f9ff; }
+
+/* ─── SIMILAR APPS ─── */
+.app-row {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+}
+
+.mini-app {
+    width: 90px;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.mini-app:hover { transform: translateY(-2px); }
+
+.mini-app img {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    object-fit: cover;
+    margin-bottom: 6px;
+    background: #f2f4f7;
+    border: 1px solid var(--border);
+}
+
+.mini-name {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+    border-top: 8px solid var(--background);
+    padding: 25px 24px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.footer a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+/* ─── IMAGE VIEWER ─── */
+.image-viewer {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .92);
+    z-index: 20;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.image-viewer.open { display: flex; }
+
+.image-viewer img {
+    max-width: 100%;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.close-viewer {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    border: 0;
+    background: #333;
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* ─── STICKY DOWNLOAD ─── */
+.sticky-download {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 12px 20px 20px;
+    background: linear-gradient(to top, #fff 70%, transparent);
+    z-index: 10;
+    display: none;
+}
+
+.install-sticky {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: var(--blue);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background .2s;
+}
+.install-sticky:hover { background: var(--blue-dark); }
+
+/* ─── TOAST ─── */
+.toast {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #303134;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 24px;
+    font-size: 14px;
+    opacity: 0;
+    transition: all .3s;
+    z-index: 30;
+    pointer-events: none;
+    max-width: 90vw;
+    text-align: center;
+}
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 480px) {
+    .topbar { height: 52px; padding: 0 15px; }
+    .breadcrumb { padding: 0 19px 8px; }
+    .app-header { padding: 22px 19px 14px; gap: 15px; }
+    .app-logo { width: 82px; height: 82px; border-radius: 19px; }
+    .app-name { font-size: 24px; }
+    .developer { font-size: 13px; }
+    .stats { margin: 0 8px; padding: 21px 3px; }
+    .stat-value { font-size: 14px; }
+    .stat-label { font-size: 10px; }
+    .install {
+        width: calc(100% - 38px);
+        margin-left: 19px;
+        margin-right: 19px;
+    }
+    .gallery-heading { padding-left: 19px; }
+    .gallery { padding-left: 19px; gap: 10px; }
+    .phone-frame img { height: 250px; max-width: 230px; }
+    section { padding: 23px 19px; }
+    .section-heading h2 { font-size: 20px; }
+    .rating-layout { grid-template-columns: 115px 1fr; gap: 13px; }
+    .score { font-size: 57px; }
+    .about-details { gap: 9px; }
+    .detail-card { padding: 12px; }
+    .footer { padding: 23px 19px; }
+    .page { padding-bottom: 100px; }
+}
+
+@media (max-width: 768px) {
+    .sticky-download { display: block; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+    <header class="topbar">
+        <button type="button" aria-label="Go back" onclick="goBack()">‹</button>
+        <button type="button" aria-label="Share app" onclick="shareApp()">↗</button>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="#">Apps</a> › <a href="#">Social</a> › Sexy Chat
+    </div>
+
+    <div class="app-header">
+        <img id="appLogo" class="app-logo"
+             src="https://i.ibb.co/FqhSrkZF/file-00000000464c821096d4d74f1ab060af.png"
+             alt="Sexy Chat app logo">
+
+        <div>
+            <h1 class="app-name">Sexy Chat</h1>
+            <div class="developer">OnlyFans</div>
+            <div class="subtitle">Chat and social communication</div>
+            <div class="app-badges">
+                <span class="badge badge-green">✔ Verified</span>
+                <span class="badge badge-blue">Editor's Choice</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <span class="stat-value">4.7 <span class="star">★</span></span>
+            <span class="stat-label">Rating</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">16 MB</span>
+            <span class="stat-label">Size</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">1M+</span>
+            <span class="stat-label">Downloads</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">18+</span>
+            <span class="stat-label">Age</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">Social</span>
+            <span class="stat-label">Category</span>
+        </div>
+    </div>
+
+    <a class="install"
+   id="installButton"
+   href="app.apk"
+   download="SexyChat.apk"
+   onclick="event.preventDefault(); directDownload();">
+    Download app
+</a>
+    <div class="install-note">APK download · Android</div>
+
+    <div class="gallery-heading">Screenshots</div>
+    <div class="gallery" id="gallery"></div>
+
+    <section id="about">
+        <div class="section-heading">
+            <h2>About this app</h2>
+            <span class="section-arrow">›</span>
+        </div>
+
+        <p class="description clamped" id="appDescription"></p>
+        <button type="button" class="read-more" id="readMoreBtn"
+                onclick="toggleDesc()">Read more</button>
+
+        <div class="chips">
+            <span class="chip">Chat</span>
+            <span class="chip">Social</span>
+            <span class="chip">Communication</span>
+        </div>
+
+        <div class="about-details">
+            <div class="detail-card">
+                <div class="detail-label">App version</div>
+                <div class="detail-value">1.0.3</div>
+            </div>
+            <div class="detail-card">
+                <div class="detail-label">Minimum Android</div>
+                <div class="detail-value">Android 8.0+</div>
+            </div>
+            <div class="detail-card">
+                <div class="detail-label">App size</div>
+                <div class="detail-value">16 MB</div>
+            </div>
+            <div class="detail-card">
+                <div class="detail-label">Content rating</div>
+                <div class="detail-value">18+ · Mature</div>
+            </div>
+            <div class="detail-card">
+                <div class="detail-label">Updated on</div>
+                <div class="detail-value">28 Oct 2026</div>
+            </div>
+            <div class="detail-card">
+                <div class="detail-label">App name</div>
+                <div class="detail-value">Sexy Chat</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="whats-new">
+        <div class="section-heading">
+            <h2>What's new</h2>
+            <span class="section-arrow">›</span>
+        </div>
+        <ul class="changelog">
+            <li>Faster chat loading</li>
+            <li>Fixed video call crash on Android 13</li>
+            <li>Improved image quality</li>
+            <li>New emoji reactions</li>
+        </ul>
+        <div class="muted">Updated 2 days ago · Version 1.0.3</div>
+    </section>
+
+    <section id="data-safety">
+        <div class="section-heading">
+            <h2>Data safety</h2>
+            <span class="section-arrow">›</span>
+        </div>
+        <p class="description">
+            This app may collect the following data and share it with
+            third parties:
+        </p>
+        <div class="data-row">
+            <span class="icon">📷</span>
+            <div>
+                <b>Photos and videos</b>
+                <div class="muted">Used for profile pictures and chat attachments</div>
+            </div>
+        </div>
+        <div class="data-row">
+            <span class="icon">📍</span>
+            <div>
+                <b>Location</b>
+                <div class="muted">Approximate location for nearby users</div>
+            </div>
+        </div>
+        <div class="data-row">
+            <span class="icon">👤</span>
+            <div>
+                <b>Personal info</b>
+                <div class="muted">Name and email for account creation</div>
+            </div>
+        </div>
+        <div class="data-row">
+            <span class="icon">💬</span>
+            <div>
+                <b>Messages</b>
+                <div class="muted">Chat messages stored for conversation history</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="developer">
+        <div class="section-heading">
+            <h2>About the developer</h2>
+            <span class="section-arrow">›</span>
+        </div>
+        <div class="dev-card">
+            <div class="dev-icon">OF</div>
+            <div>
+                <div class="dev-name">OnlyFans Ltd.</div>
+                <div class="muted">developer@example.com</div>
+                <div class="muted">🌐 Website · 📍 India</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ratings">
+        <div class="section-heading">
+            <h2>Ratings and reviews</h2>
+            <span class="section-arrow">›</span>
+        </div>
+
+        <div class="rating-layout">
+            <div>
+                <div class="score">4.7</div>
+                <div class="stars">★★★★★</div>
+                <div class="muted">1,75,834</div>
+            </div>
+
+            <div>
+                <div class="bar-row">
+                    5
+                    <div class="bar"><span style="width:73%"></span></div>
+                    <span class="muted">73%</span>
+                </div>
+                <div class="bar-row">
+                    4
+                    <div class="bar"><span style="width:20%"></span></div>
+                    <span class="muted">20%</span>
+                </div>
+                <div class="bar-row">
+                    3
+                    <div class="bar"><span style="width:5%"></span></div>
+                    <span class="muted">5%</span>
+                </div>
+                <div class="bar-row">
+                    2
+                    <div class="bar"><span style="width:4%"></span></div>
+                    <span class="muted">4%</span>
+                </div>
+                <div class="bar-row">
+                    1
+                    <div class="bar"><span style="width:4%"></span></div>
+                    <span class="muted">4%</span>
+                </div>
+            </div>
+        </div>
+
+        <p class="review-summary">
+            Explore feedback about the app's design, features,
+            usability and overall experience.
+        </p>
+
+        <div class="demo-note">
+            Ratings and sample reviews below are illustrative examples,
+            not verified user testimonials. Replace them with genuine
+            feedback before publishing.
+        </div>
+
+        <div class="review-filters" id="reviewFilters">
+            <button class="active" data-sort="relevant" onclick="setSort(this, 'relevant')">Most relevant</button>
+            <button data-sort="newest" onclick="setSort(this, 'newest')">Newest</button>
+            <button data-sort="highest" onclick="setSort(this, 'highest')">Highest rating</button>
+            <button data-sort="lowest" onclick="setSort(this, 'lowest')">Lowest rating</button>
+        </div>
+
+        <div class="review-list" id="reviewList"></div>
+
+        <button type="button" class="load-more"
+                id="loadMoreButton" onclick="loadMoreReviews()">
+            Show more reviews
+        </button>
+    </section>
+
+    <section id="similar">
+        <div class="section-heading">
+            <h2>You might also like</h2>
+            <span class="section-arrow">›</span>
+        </div>
+        <div class="app-row" id="similarRow"></div>
+    </section>
+
+    <footer class="footer">
+        <p>
+            Sexy Chat app information and download page.
+            Check the app source and permissions before installing.
+        </p>
+        <p>
+            <a href="#about">About this app</a>
+            &nbsp; · &nbsp;
+            <a href="#ratings">Ratings and reviews</a>
+        </p>
+        <p>Use the app responsibly and respect other users' privacy.</p>
+    </footer>
+
+</div>
+
+<div class="image-viewer" id="imageViewer" onclick="closeViewer()">
+    <button type="button" class="close-viewer"
+            aria-label="Close image"
+            onclick="closeViewer()">×</button>
+    <img id="viewerImage" src="" alt="Screenshot preview">
+</div>
+
+<div class="sticky-download" id="stickyBar">
+    <button type="button" class="install-sticky" onclick="directDownload()">
+    Download · 16 MB
+</button>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════
+   APP CONFIGURATION
+   ═══════════════════════════════════════════ */
+const APP_CONFIG = {
+    name: "Sexy Chat",
+    logo: "https://i.ibb.co/FqhSrkZF/file-00000000464c821096d4d74f1ab060af.png",
+    apkUrl: "app.apk",
+    description:
+        "Sexy Chat is a chat and social communication app. It allows users to " +
+        "connect with people from around the world through text messages, " +
+        "voice notes, image sharing, and one-on-one video calls. The app " +
+        "features a clean, modern interface designed for easy navigation. " +
+        "Users can create a profile, browse matches based on preferences, " +
+        "and start conversations instantly. Built-in privacy controls let " +
+        "you manage who can see your profile and contact you. The app " +
+        "supports multiple languages and is optimized for low-bandwidth " +
+        "connections. Explore its interface and features through the " +
+        "screenshots below.",
+    screenshots: [
+        "https://ibb.co/zWwBPt45",
+        "https://ibb.co/Ps0GDSYj",
+        "https://ibb.co/tTDQwdh7",
+        "https://ibb.co/20R1JwGW"
+    ]
+};
+
+/* ═══════════════════════════════════════════
+   SAMPLE REVIEWS
+   ═══════════════════════════════════════════ */
+const REVIEWS = [
+    {
+        name: "Atul Sharma",
+        avatar: "AS",
+        date: "2 days ago",
+        timestamp: 3,
+        rating: 5,
+        title: "Nice and simple interface",
+        text: "The interface is easy to navigate and the layout is simple."
+    },
+    {
+        name: "Rahul Verma",
+        avatar: "RV",
+        date: "1 week ago",
+        timestamp: 2,
+        rating: 5,
+        title: "Great experience so far",
+        text: "The girls here are very nice, very kind😍."
+    },
+    {
+        name: "Anirudh Reddy",
+        avatar: "AR",
+        date: "2 weeks ago",
+        timestamp: 1,
+        rating: 4,
+        title: "Easy to explore",
+        text: "I like the organized layout and the screenshot gallery."
+    },
+    {
+        name: "Arjun Kumar",
+        avatar: "AK",
+        date: "3 weeks ago",
+        timestamp: 0,
+        rating: 5,
+        title: "Good layout",
+        text: "The app information is presented in a clear format."
+    },
+    {
+        name: "Govid Patel",
+        avatar: "GP",
+        date: "1 month ago",
+        timestamp: -1,
+        rating: 4,
+        title: "Simple experience",
+        text: "The page is readable and convenient to use on mobile."
+    },
+    {
+        name: "Rizwan Khan",
+        avatar: "RK",
+        date: "1 month ago",
+        timestamp: -2,
+        rating: 5,
+        title: "Works well",
+        text: "No issues during use. Smooth and fast."
+    },
+    {
+        name: "Mohammed Khan",
+        avatar: "MK",
+        date: "2 months ago",
+        timestamp: -3,
+        rating: 3,
+        title: "Decent app",
+        text: "It works. Some features could be improved."
+    },
+    {
+        name: "Krish Negi",
+        avatar: "KN",
+        date: "2 months ago",
+        timestamp: -4,
+        rating: 5,
+        title: "Lovely design",
+        text: "The screenshots look great and the app matches them."
+    }
+];
+
+/* ═══════════════════════════════════════════
+   SIMILAR APPS
+   ═══════════════════════════════════════════ */
+const SIMILAR_APPS = [
+    { name: "Chat Meet", rating: "4.5", img: "https://i.ibb.co/FqhSrkZF/file-00000000464c821096d4d74f1ab060af.png" },
+    { name: "Social Live", rating: "4.2", img: "https://i.ibb.co/FqhSrkZF/file-00000000464c821096d4d74f1ab060af.png" },
+    { name: "Talk Now", rating: "4.4", img: "https://i.ibb.co/FqhSrkZF/file-00000000464c821096d4d74f1ab060af.png" },
+    { name: "Meet & Chat", rating: "4.1", img: "https://i.ibb.co/FqhSrkZF/file-00000000464c821096d4d74f1ab060af.png" }
+];
+
+/* ═══════════════════════════════════════════
+   INIT
+   ═══════════════════════════════════════════ */
+const appLogo = document.getElementById("appLogo");
+const gallery = document.getElementById("gallery");
+const viewer = document.getElementById("imageViewer");
+const viewerImage = document.getElementById("viewerImage");
+
+appLogo.src = APP_CONFIG.logo;
+document.getElementById("installButton").href = APP_CONFIG.apkUrl;
+document.getElementById("appDescription").textContent = APP_CONFIG.description;
+
+appLogo.addEventListener("error", function () {
+    this.style.visibility = "hidden";
+});
+
+/* ═══════════════════════════════════════════
+   TOAST
+   ═══════════════════════════════════════════ */
+function showToast(message) {
+    const toast = document.createElement("div");
+    toast.className = "toast";
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.classList.add("show"), 10);
+    setTimeout(() => {
+        toast.classList.remove("show");
+        setTimeout(() => toast.remove(), 300);
+    }, 2500);
+}
+
+/* ═══════════════════════════════════════════
+   SCREENSHOT GALLERY (with phone frames + skeleton)
+   ═══════════════════════════════════════════ */
+APP_CONFIG.screenshots.forEach(function (path, index) {
+    const frame = document.createElement("div");
+    frame.className = "phone-frame";
+
+    const img = document.createElement("img");
+    img.src = path;
+    img.alt = APP_CONFIG.name + " screenshot " + (index + 1);
+    img.loading = index > 1 ? "lazy" : "eager";
+
+    img.addEventListener("load", function () {
+        img.classList.add("loaded");
+    });
+
+    img.addEventListener("click", function () {
+        openViewer(path, img.alt);
+    });
+
+    img.addEventListener("error", function () {
+        frame.style.display = "none";
+    });
+
+    frame.appendChild(img);
+    gallery.appendChild(frame);
+});
+
+/* ═══════════════════════════════════════════
+   IMAGE VIEWER
+   ═══════════════════════════════════════════ */
+function openViewer(src, alt) {
+    viewerImage.src = src;
+    viewerImage.alt = alt;
+    viewer.classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+
+function closeViewer() {
+    viewer.classList.remove("open");
+    viewerImage.src = "";
+    document.body.style.overflow = "";
+}
+
+viewerImage.addEventListener("click", function (event) {
+    event.stopPropagation();
+});
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        closeViewer();
+    }
+});
+
+/* ═══════════════════════════════════════════
+   READ MORE / TOGGLE DESCRIPTION
+   ═══════════════════════════════════════════ */
+let descExpanded = false;
+
+function toggleDesc() {
+    const desc = document.getElementById("appDescription");
+    const btn = document.getElementById("readMoreBtn");
+
+    descExpanded = !descExpanded;
+
+    if (descExpanded) {
+        desc.classList.remove("clamped");
+        btn.textContent = "Read less";
+    } else {
+        desc.classList.add("clamped");
+        btn.textContent = "Read more";
+    }
+}
+
+/* ═══════════════════════════════════════════
+   REVIEWS
+   ═══════════════════════════════════════════ */
+const reviewList = document.getElementById("reviewList");
+const reviewsPerPage = 4;
+let visibleReviews = 0;
+let currentSort = "relevant";
+
+function getSortedReviews() {
+    const copy = REVIEWS.slice();
+
+    switch (currentSort) {
+        case "newest":
+            return copy.sort((a, b) => b.timestamp - a.timestamp);
+        case "highest":
+            return copy.sort((a, b) => b.rating - a.rating);
+        case "lowest":
+            return copy.sort((a, b) => a.rating - b.rating);
+        case "relevant":
+        default:
+            return copy.sort((a, b) => b.rating - a.rating);
+    }
+}
+
+function renderReviews() {
+    reviewList.replaceChildren();
+
+    const sorted = getSortedReviews();
+
+    sorted.slice(0, visibleReviews).forEach(function (review) {
+        const article = document.createElement("article");
+        article.className = "review";
+
+        const top = document.createElement("div");
+        top.className = "review-top";
+
+        const avatar = document.createElement("div");
+        avatar.className = "avatar";
+        avatar.textContent = review.avatar;
+
+        const person = document.createElement("div");
+        person.className = "review-person";
+
+        const name = document.createElement("div");
+        name.className = "review-name";
+        name.textContent = review.name;
+
+        const date = document.createElement("div");
+        date.className = "review-date";
+        date.textContent = review.date;
+
+        person.append(name, date);
+        top.append(avatar, person);
+
+        const rating = document.createElement("div");
+        rating.className = "stars review-rating";
+        rating.textContent =
+            "★".repeat(review.rating) +
+            "☆".repeat(5 - review.rating);
+
+        const title = document.createElement("div");
+        title.className = "review-title";
+        title.textContent = review.title;
+
+        const text = document.createElement("p");
+        text.className = "review-text";
+        text.textContent = review.text;
+
+        const actions = document.createElement("div");
+        actions.className = "review-actions";
+
+        const helpful = document.createElement("span");
+        helpful.className = "helpful-label";
+        helpful.textContent = "Was this helpful?";
+
+        const buttons = document.createElement("div");
+        buttons.className = "vote-buttons";
+
+        ["Yes", "No"].forEach(function (choice) {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.textContent = choice;
+
+            button.addEventListener("click", function () {
+                buttons.querySelectorAll("button").forEach(function (item) {
+                    item.disabled = true;
+                });
+
+                button.textContent = "Selected";
+                helpful.textContent = "Thanks for your feedback!";
+                showToast("Feedback recorded");
+            });
+
+            buttons.appendChild(button);
+        });
+
+        actions.append(helpful, buttons);
+        article.append(top, rating, title, text, actions);
+        reviewList.appendChild(article);
+    });
+
+    const moreButton = document.getElementById("loadMoreButton");
+
+    moreButton.style.display =
+        visibleReviews >= REVIEWS.length ? "none" : "block";
+}
+
+function loadMoreReviews() {
+    visibleReviews = Math.min(
+        visibleReviews + reviewsPerPage,
+        REVIEWS.length
+    );
+    renderReviews();
+}
+
+function setSort(button, sortType) {
+    currentSort = sortType;
+
+    document.querySelectorAll("#reviewFilters button").forEach(function (btn) {
+        btn.classList.remove("active");
+    });
+    button.classList.add("active");
+
+    visibleReviews = Math.min(reviewsPerPage, REVIEWS.length);
+    renderReviews();
+}
+
+visibleReviews = Math.min(reviewsPerPage, REVIEWS.length);
+renderReviews();
+
+/* ═══════════════════════════════════════════
+   SIMILAR APPS
+   ═══════════════════════════════════════════ */
+const similarRow = document.getElementById("similarRow");
+
+SIMILAR_APPS.forEach(function (app) {
+    const card = document.createElement("div");
+    card.className = "mini-app";
+
+    const img = document.createElement("img");
+    img.src = app.img;
+    img.alt = app.name;
+
+    const name = document.createElement("div");
+    name.className = "mini-name";
+    name.textContent = app.name;
+
+    const rating = document.createElement("div");
+    rating.className = "muted";
+    rating.textContent = app.rating + " ★";
+
+    card.append(img, name, rating);
+    similarRow.appendChild(card);
+});
+
+/* ═══════════════════════════════════════════
+   STICKY DOWNLOAD
+   ═══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════
+   DIRECT DOWNLOAD — hidden iframe trick
+   Same page pe rehta hai, redirect nahi hota.
+   Browser seedha file download karna shuru karta hai.
+   ═══════════════════════════════════════════ */
+let _downloading = false;
+
+function directDownload() {
+    if (_downloading) {
+        showToast("Download already in progress…");
+        return;
+    }
+
+    const url = APP_CONFIG.apkUrl;
+
+    if (!url || url === "#") {
+        showToast("Download link not configured");
+        return;
+    }
+
+    _downloading = true;
+    showToast("Download started…");
+
+    // Hidden iframe — page navigate nahi hota
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.style.position = "absolute";
+    iframe.style.width = "0";
+    iframe.style.height = "0";
+    iframe.style.border = "0";
+    iframe.src = url;
+
+    iframe.onload = function () {
+        setTimeout(function () {
+            try { iframe.remove(); } catch (e) {}
+        }, 3000);
+    };
+    document.body.appendChild(iframe);
+
+    // 30s baad button dobara kaam kare
+    setTimeout(function () { _downloading = false; }, 30000);
+}
+
+/* Sticky bar ke liye alias (purana naam rakha hai taaki HTML na badalna pade) */
+function triggerDownload() {
+    directDownload();
+}
+/* ═══════════════════════════════════════════
+   SHARE
+   ═══════════════════════════════════════════ */
+async function shareApp() {
+    const shareData = {
+        title: APP_CONFIG.name + " - App Information",
+        text: "View the " + APP_CONFIG.name + " app information",
+        url: window.location.href
+    };
+
+    try {
+        if (navigator.share) {
+            await navigator.share(shareData);
+        } else if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(window.location.href);
+            showToast("Link copied to clipboard");
+        } else {
+            prompt("Copy this page link:", window.location.href);
+        }
+    } catch (error) {
+        if (error.name !== "AbortError") {
+            showToast("Unable to share this link");
+        }
+    }
+}
+
+/* ═══════════════════════════════════════════
+   BACK BUTTON
+   ═══════════════════════════════════════════ */
+function goBack() {
+    if (window.history.length > 1) {
+        window.history.back();
+    } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+}
+</script>
+</body>
+</html>
